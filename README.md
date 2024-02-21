@@ -1,4 +1,4 @@
-# Astro
+# BPO Astro data reduction and photometry
 Set of jupyter notebooks for astronomy data reduction and photometry primarily for variable stars
 
 file structure is
@@ -30,21 +30,21 @@ Run in this order :
   - This will open all the reduced files and find the stars, perform Aperture photometry and then save all that as a .csv
   - Needs the aperture function in the My_Functions_v3.py file
 
-BY HAND
-- Look at each reduced file
-  - if it no good, dim, blury, bumped, remove it to a sub folder called "NoGood" and so that file will be ignores in the following analysis.
-  - I use the https://github.com/siyu6974/QuickLook.Plugin.FitsViewer/blob/master/README.md plugin to easily do this.
+- BY HAND
+  - Look at each reduced file
+    - if it no good, dim, blury, bumped, remove it to a sub folder called "NoGood" and so that file will be ignores in the following analysis.
+    - I use the https://github.com/siyu6974/QuickLook.Plugin.FitsViewer/blob/master/README.md plugin to easily do this.
 
-If you have lots of new data then you may want to...
-- Make_Star_Master_v4
-  - Take all the images in a filter band and make them into a composite image, send to astrometry.net and then SIMBAD so align and solve.
-  - Can be memory hungry as it opens all the images at once.
-  - Saves a weight-mean image and a (non-weighted) median image. Excludes pizels that are saturated.
-  - Produces an compsite saturated "image"
+- If you have lots of new data then you may want to...
+   - Make_Star_Master_v4
+      - Take all the images in a filter band and make them into a composite image, send to astrometry.net and then SIMBAD so align and solve.
+      - Can be memory hungry as it opens all the images at once.
+      - Saves a weight-mean image and a (non-weighted) median image. Excludes pizels that are saturated.
+      - Produces an compsite saturated "image"
 
-- Find_Normalisation stars_v1
-  - Cycles through all the found stars in the master image, look at them to see if they have neighbours, or are close to the edge etc. and asks the user if they are worthy of being a normlisation star or not.
-  - Run for each filter
+  - Find_Normalisation stars_v1
+      - Cycles through all the found stars in the master image, look at them to see if they have neighbours, or are close to the edge etc. and asks the user if they are worthy of being a normlisation star or not.
+      - Run for each filter
 
 - Star_align_v4
   - Reads in the various output and make a new registered csv with the id_ref for each star common to all the images.
@@ -52,4 +52,4 @@ If you have lots of new data then you may want to...
 
 
 - Normalise_form_Star_align
- - Reads in the registered csv's and find a common set of local-standard and works out a normalisation constant per image. Applies and outputs various pdfs and csv.
+    - Reads in the registered csv's and find a common set of local-standard and works out a normalisation constant per image. Applies and outputs various pdfs and csv.
